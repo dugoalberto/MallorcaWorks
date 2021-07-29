@@ -23,15 +23,19 @@ public class CourseService{
         return (List<Course>) repository.findAll();
      }
 
-     public Course getById(int id) {
+     public Course getById(String id) {
         return repository.findById(id).orElse(null);
      }
 
-     public void delete(int id) {
+     public void delete(String id) {
         repository.deleteById(id);
      }
 
     public void updateCourse(Course course) {
+        Course course1 = repository.findById(course.getLevel()).orElse(null);
+        if(course1 != null) {
+            course1.setLevel(course.getLevel());
+            repository.save(course1);
+        }
     }
-
 }

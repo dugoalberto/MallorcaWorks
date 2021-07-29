@@ -11,8 +11,9 @@ import javax.persistence.*;
 @Entity
 public class Course{
     @Id
+
     @Column(name = "level")
-    private int level;
+    private String level;
 
     @Override
     public String toString() {

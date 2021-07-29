@@ -9,24 +9,18 @@ import javax.persistence.*;
 @Setter
 @EqualsAndHashCode
 @Entity
-public class Teacher {
+@Table(name = "Teachers")
+public class Teacher extends User{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idNumber")
-    private int idNumber;
+    @Column(name = "id")
+    private int id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
     @Column(name = "surname", nullable = false)
     private String surname;
 
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                "idNumber=" + idNumber +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
-    }
+    @OneToOne(mappedBy = "")
+    private User user;
 }

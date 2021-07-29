@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TeacherRepo extends CrudRepository<Teacher, Integer> {
-    Teacher findByIdNumber(int idNumber);
 }

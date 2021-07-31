@@ -21,6 +21,23 @@ public class Teacher implements User{
     @Column(name = "surname", nullable = false)
     private String surname;
 
-    @OneToOne(mappedBy = "")
-    private User user;
+    @OneToOne()
+    @JoinColumn(name = "account", referencedColumnName = "username")
+    private Account account;
+
+    @Override
+    public String getUsername() {
+        return account.getUsername();
+    }
+
+    @Override
+    public Role getRole() {
+        return Role.TEACHER;
+    }
+
+    @Override
+    public boolean credsValid(String username, String password) {
+        // TODO check for hashing
+        return username.equals(this.account.getUsername()) && password.equals(this.account.getPassword());
+    }
 }

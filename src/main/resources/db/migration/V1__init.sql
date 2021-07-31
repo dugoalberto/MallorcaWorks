@@ -18,14 +18,14 @@ CREATE TABLE Teachers(
     account varchar (30) REFERENCES Accounts(username)
 )
 CREATE TABLE GrandMasters(
-     id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
-     name varchar(30),
-     surname varchar (30),
-     account varchar (30) REFERENCES Accounts(username)
+    id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    name varchar(30),
+    surname varchar (30),
+    account varchar (30) REFERENCES Accounts(username)
 )
 CREATE TABLE Courses(
-     id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
-     level varchar(30),
-     begin_date DATE,
-     end_date DATE
+    id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    level varchar(30),
+    begin_date DATE,
+    end_date DATE
 )

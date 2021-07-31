@@ -1,6 +1,9 @@
 package com.mallorcaWorks.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import com.mallorcaWorks.model.Account;
 
-public interface AccountRepo extends CrudRepository<AccountRepo, Integer> {
-}
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface AccountRepo extends CrudRepository<Account, Integer> { }

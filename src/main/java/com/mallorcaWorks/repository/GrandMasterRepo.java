@@ -1,6 +1,9 @@
 package com.mallorcaWorks.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import com.mallorcaWorks.model.GrandMaster;
 
-public interface GrandMasterRepo extends CrudRepository<GrandMasterRepo, Integer> {
-}
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface GrandMasterRepo extends CrudRepository<GrandMaster, Integer> { }

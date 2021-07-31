@@ -1,6 +1,6 @@
 package com.mallorcaWorks.model;
 
-public abstract class User {
+public interface User {
     String getName();
     String getSurname();
 }

@@ -18,6 +18,10 @@ public class Account {
     @Column(name = "password")
     private String password;
 
+    @OneToOne
+    @JoinColumn(name = "username")
+    private User user;
+
     @Override
     public String toString() {
         return "Account{" +

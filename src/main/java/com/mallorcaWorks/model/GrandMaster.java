@@ -1,6 +1,7 @@
 package com.mallorcaWorks.model;
 
 import lombok.*;
+
 import javax.persistence.*;
 
 @Data
@@ -9,8 +10,8 @@ import javax.persistence.*;
 @Setter
 @EqualsAndHashCode
 @Entity
-@Table(name = "Teachers")
-public class Teacher implements User{
+@Table(name = "GrandMasters")
+public class GrandMaster {
     @Id
     @Column(name = "id")
     private int id;
@@ -21,6 +22,7 @@ public class Teacher implements User{
     @Column(name = "surname", nullable = false)
     private String surname;
 
-    @OneToOne(mappedBy = "")
+    @OneToOne(mappedBy = "user")
     private User user;
+
 }

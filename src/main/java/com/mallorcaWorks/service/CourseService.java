@@ -23,16 +23,16 @@ public class CourseService{
         return (List<Course>) repository.findAll();
      }
 
-     public Course getById(String id) {
+     public Course getById(int id) {
         return repository.findById(id).orElse(null);
      }
 
-     public void delete(String id) {
+     public void delete(int id) {
         repository.deleteById(id);
      }
 
     public void updateCourse(Course course) {
-        Course course1 = repository.findById(course.getLevel()).orElse(null);
+        Course course1 = repository.findById(course.getId()).orElse(null);
         if(course1 != null) {
             course1.setLevel(course.getLevel());
             repository.save(course1);

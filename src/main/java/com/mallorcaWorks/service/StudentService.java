@@ -1,14 +1,12 @@
 package com.mallorcaWorks.service;
 
-import com.mallorcaWorks.model.Course;
 import com.mallorcaWorks.model.Student;
-import com.mallorcaWorks.model.User;
 import com.mallorcaWorks.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
+
 @Service
 public class StudentService{
     @Autowired
@@ -35,15 +33,15 @@ public class StudentService{
     }
 
     public void updateUser(Student user) {
-        Student user1 = repository.findById(user.getId()).orElse(null);
-        if(user1 != null) {
-            user1.setLanguageLevel(user.getLanguageLevel());
-            user1.setWeeks(user.getWeeks());
-            user1.setDateOfBirth(user.getDateOfBirth());
-            user1.setName(user.getName());
-            user1.setNationality(user.getNationality());
-            user1.setSurname(user.getSurname());
-            repository.save(user1);
+        Student updatedUser = repository.findById(user.getId()).orElse(null);
+        if(updatedUser != null) {
+            updatedUser.setLanguageLevel(user.getLanguageLevel());
+            updatedUser.setWeeks(user.getWeeks());
+            updatedUser.setDateOfBirth(user.getDateOfBirth());
+            updatedUser.setName(user.getName());
+            updatedUser.setNationality(user.getNationality());
+            updatedUser.setSurname(user.getSurname());
+            repository.save(updatedUser);
         }
     }
 

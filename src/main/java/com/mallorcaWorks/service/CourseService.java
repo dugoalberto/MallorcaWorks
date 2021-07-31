@@ -4,7 +4,6 @@ import com.mallorcaWorks.model.Course;
 import com.mallorcaWorks.repository.CourseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Collection;
 import java.util.List;
 
 public class CourseService{

@@ -38,10 +38,10 @@ public class AccountService {
     }
 
     public void updateUser(Account account) {
-        // TODO
-        Account account1 = accountRepository.findById(account.getUsername()).orElse(null);
-        if(account1 != null) {
-
+        Account updatedAccount = accountRepository.findById(account.getUsername()).orElse(null);
+        if(updatedAccount != null) {
+            updatedAccount.setPassword(account.getPassword());
+            accountRepository.save(updatedAccount);
         }
     }
 }

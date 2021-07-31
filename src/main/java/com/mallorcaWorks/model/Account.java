@@ -1,15 +1,7 @@
 package com.mallorcaWorks.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -25,6 +17,10 @@ public class Account {
 
     @Column(name = "password")
     private String password;
+
+    @OneToOne
+    @JoinColumn(name = "username")
+    private User user;
 
     @Override
     public String toString() {

@@ -33,6 +33,12 @@ public class TeacherService{
     }
 
     public void updateTeacher(Teacher teacher) {
+        Teacher updatedTeacher = repository.findById(teacher.getId()).orElse(null);
+        if(updatedTeacher != null ){
+            updatedTeacher.setName(teacher.getName());
+            updatedTeacher.setSurname(teacher.getSurname());
+            repository.save(updatedTeacher);
+        }
     }
 
 }

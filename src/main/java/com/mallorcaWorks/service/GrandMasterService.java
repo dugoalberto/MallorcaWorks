@@ -36,8 +36,12 @@ public class GrandMasterService {
     }
 
     public void updateUser(GrandMaster user) {
-        GrandMaster user1 = repository.findById(user.getId()).orElse(null);
-        // TODO
+        GrandMaster updatedUser = repository.findById(user.getId()).orElse(null);
+        if (updatedUser != null){
+            updatedUser.setName(user.getName());
+            updatedUser.setSurname(user.getSurname());
+            repository.save(updatedUser);
+        }
     }
 
 }

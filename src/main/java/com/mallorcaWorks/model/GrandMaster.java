@@ -1,17 +1,8 @@
 package com.mallorcaWorks.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import lombok.*;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -20,7 +11,7 @@ import lombok.Setter;
 @EqualsAndHashCode
 @Entity
 @Table(name = "GrandMasters")
-public class GrandMaster implements User {
+public class GrandMaster {
     @Id
     @Column(name = "id")
     private int id;
@@ -31,26 +22,7 @@ public class GrandMaster implements User {
     @Column(name = "surname", nullable = false)
     private String surname;
 
-    @OneToOne()
-    @JoinColumn(name = "account", referencedColumnName = "username")
-    private Account account;
-
-	@Override
-	public Role getRole() {
-		return Role.GRANDMASTER;
-	}
-
-	@Override
-	public boolean credsValid(String username, String password) {
-        //TODO check for hashing
-		return username.equals(this.account.getUsername()) && password.equals(this.account.getPassword());
-	}
-
-    @Override
-    public String getUsername() {
-        return this.account.getUsername();
-    }
-
-    
+    @OneToOne(mappedBy = "user")
+    private User user;
 
 }

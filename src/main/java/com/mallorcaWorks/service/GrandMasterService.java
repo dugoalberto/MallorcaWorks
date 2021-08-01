@@ -1,9 +1,7 @@
 package com.mallorcaWorks.service;
 
 import com.mallorcaWorks.model.GrandMaster;
-import com.mallorcaWorks.model.Student;
 import com.mallorcaWorks.repository.GrandMasterRepo;
-import com.mallorcaWorks.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

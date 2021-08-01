@@ -22,7 +22,8 @@ public class GrandMaster {
     @Column(name = "surname", nullable = false)
     private String surname;
 
-    @OneToOne(mappedBy = "user")
-    private User user;
+    @OneToOne()
+    @JoinColumn(name = "account", referencedColumnName = "username")
+    private Account account;
 
 }

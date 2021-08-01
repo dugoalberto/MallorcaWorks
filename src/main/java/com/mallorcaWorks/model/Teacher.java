@@ -10,7 +10,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @Entity
 @Table(name = "Teachers")
-public class Teacher implements User{
+public class Teacher implements User {
     @Id
     @Column(name = "id")
     private int id;

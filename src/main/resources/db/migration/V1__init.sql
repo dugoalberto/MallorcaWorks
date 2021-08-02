@@ -1,4 +1,4 @@
-CREATE TABLE Students (
+CREATE TABLE students (
     id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name varchar(30) NOT NULL,
     surname varchar (30),
@@ -8,7 +8,7 @@ CREATE TABLE Students (
     date_of_birth DATE
 );
 
-CREATE TABLE Users (
+CREATE TABLE users (
     username varchar(30) PRIMARY KEY NOT NULL,
     name varchar(30),
     surname varchar (30),
@@ -16,7 +16,7 @@ CREATE TABLE Users (
     user_type varchar(30) NOT NULL
 );
 
-CREATE TABLE Courses (
+CREATE TABLE courses (
     id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     level varchar(30),
     begin_date DATE,
@@ -24,7 +24,7 @@ CREATE TABLE Courses (
     teacher varchar(30) REFERENCES Users(username)
 );
 
-CREATE TABLE CoursesStudents (
+CREATE TABLE courses_students (
     course int REFERENCES Courses(id) ON DELETE CASCADE ON UPDATE CASCADE,
     student int REFERENCES Students(id) ON DELETE CASCADE ON UPDATE CASCADE
 )

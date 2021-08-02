@@ -30,11 +30,7 @@ public class CoursesController {
         model.addAttribute("course", course);
         return "addCourse";
     }
-    @RequestMapping(path = { "/"}, method = RequestMethod.POST)
-    public String addCourse(@ModelAttribute("course")Course course){
-        courseService.save(course);
-        return "redirect:/courses";
-    }
+
     @RequestMapping(path = { "/modifyCourse/{id}"})
     public String editLav(@PathVariable("id") int id, ModelMap model){
         model.addAttribute("course", courseService.getById(id));
@@ -46,5 +42,5 @@ public class CoursesController {
         courseService.delete(id);
         return "redirect:/courses";
 
-    }*/
+    }
 }

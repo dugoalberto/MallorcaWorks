@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "Courses")
+@Table(name = "courses")
 public class Course {
 
     @Id

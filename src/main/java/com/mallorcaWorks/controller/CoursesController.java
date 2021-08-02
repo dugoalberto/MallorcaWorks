@@ -1,7 +1,9 @@
 package com.mallorcaWorks.controller;
 
 import com.mallorcaWorks.model.Course;
+import com.mallorcaWorks.model.Teacher;
 import com.mallorcaWorks.service.CourseService;
+import com.mallorcaWorks.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import java.util.List;
 public class CoursesController {
     @Autowired
     CourseService courseService;
+    TeacherService teacherService;
 
     @GetMapping(path = { "/courses"})
     public String showListaCourses(ModelMap model){
@@ -28,6 +31,8 @@ public class CoursesController {
     public String addNewCourse(ModelMap model){
         Course course = new Course();
         model.addAttribute("course", course);
+        List<Teacher> teacherList = teacherService.getAll();
+        model.addAttribute("teacherList", teacherList)
         return "addCourse";
     }
     @RequestMapping(path = { "/"}, method = RequestMethod.POST)
@@ -46,5 +51,5 @@ public class CoursesController {
         courseService.delete(id);
         return "redirect:/courses";
 
-    }*/
+    }
 }

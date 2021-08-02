@@ -15,7 +15,7 @@ public class CoursesController {
     @Autowired
     CourseService courseService;
 
-    @GetMapping(path = { "/"})
+    @GetMapping(path = { "/courses"})
     public String showListaCourses(ModelMap model){
         List<Course> courseList= courseService.getAll();
         model.addAttribute("courseList", courseList);
@@ -24,7 +24,7 @@ public class CoursesController {
     /**
      *save tutto in add newCourse??
      */
-    @RequestMapping(path = { "/"}, method = RequestMethod.GET)
+    @RequestMapping(path = { "/addCourse"}, method = RequestMethod.GET)
     public String addNewCourse(ModelMap model){
         Course course = new Course();
         model.addAttribute("course", course);

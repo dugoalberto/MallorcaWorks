@@ -40,4 +40,9 @@ public class Teacher implements User {
         // TODO check for hashing
         return username.equals(this.account.getUsername()) && password.equals(this.account.getPassword());
     }
+
+    @Override
+    public String getPassword() {
+        return account.getPassword();
+    }
 }

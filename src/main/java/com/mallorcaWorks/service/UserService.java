@@ -4,10 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import com.mallorcaWorks.model.Role;
 import com.mallorcaWorks.model.User;
-import com.mallorcaWorks.repository.GrandMasterRepo;
-import com.mallorcaWorks.repository.TeacherRepo;
 import com.mallorcaWorks.repository.UserRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;

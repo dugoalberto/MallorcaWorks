@@ -5,7 +5,6 @@ import com.mallorcaWorks.model.Teacher;
 import com.mallorcaWorks.service.CourseService;
 import com.mallorcaWorks.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +31,7 @@ public class CoursesController {
         Course course = new Course();
         model.addAttribute("course", course);
         List<Teacher> teacherList = teacherService.getAll();
-        model.addAttribute("teacherList", teacherList)
+        model.addAttribute("teacherList", teacherList);
         return "addCourse";
     }
 

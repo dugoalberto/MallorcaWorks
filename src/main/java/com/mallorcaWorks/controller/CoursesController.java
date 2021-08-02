@@ -12,7 +12,6 @@ import java.util.List;
 
 @Controller
 public class CoursesController {
- //TO-DO
     @Autowired
     CourseService courseService;
 
@@ -22,7 +21,6 @@ public class CoursesController {
         model.addAttribute("courseList", courseList);
         return "courses";
     }
-
     /**
      *save tutto in add newCourse??
      */

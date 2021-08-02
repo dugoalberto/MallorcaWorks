@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"
+    >
+    <link href="login.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
-    <title>porcoddddddddiioooo</title>
+    <title>login page</title>
 </head>
 <body>
-    <h1> porcodddioooo </h1>
+    <div class="container">
+        <div class="centred2">
+            <form th:onforminput="" t name="userName" value="${user.name}" />
+        </div>
+        <div class="centred3">
+            <input type="text">
+        </div>
+        <div class="centred4">
+            <button type="button">LOG IN</button>
+        </div>
+    </div>
 </body>
 </html>

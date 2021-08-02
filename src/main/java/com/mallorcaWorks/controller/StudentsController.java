@@ -1,8 +1,6 @@
 package com.mallorcaWorks.controller;
 
-import com.mallorcaWorks.model.Course;
 import com.mallorcaWorks.model.Student;
-import com.mallorcaWorks.service.CourseService;
 import com.mallorcaWorks.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

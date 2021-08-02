@@ -6,7 +6,11 @@ import java.util.List;
 
 import com.mallorcaWorks.model.Role;
 import com.mallorcaWorks.model.User;
+import com.mallorcaWorks.repository.GrandMasterRepo;
+import com.mallorcaWorks.repository.TeacherRepo;
+import com.mallorcaWorks.repository.UserRepo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,10 +21,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements UserDetailsService {
 
+    private final UserRepo userRepo;
+
+    @Autowired
+    public UserService(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // TODO Auto-generated method stub
-        return null;
+        User user = userRepo.findById(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return new CustomUserDetails(user);
     }
 
     static final class CustomUserDetails implements UserDetails {

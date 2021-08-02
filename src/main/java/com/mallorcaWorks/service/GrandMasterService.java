@@ -25,16 +25,16 @@ public class GrandMasterService {
         return (List<GrandMaster>) repository.findAll();
     }
 
-    public GrandMaster getById(int id) {
-        return repository.findById(id).orElse(null);
+    public GrandMaster getByUsername(String username) {
+        return repository.findById(username).orElse(null);
     }
 
-    public void delete(int id) {
-        repository.deleteById(id);
+    public void delete(String username) {
+        repository.deleteById(username);
     }
 
     public void updateUser(GrandMaster user) {
-        GrandMaster updatedUser = repository.findById(user.getId()).orElse(null);
+        GrandMaster updatedUser = repository.findById(user.getUsername()).orElse(null);
         if (updatedUser != null){
             updatedUser.setName(user.getName());
             updatedUser.setSurname(user.getSurname());

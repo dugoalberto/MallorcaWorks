@@ -2,8 +2,9 @@ package com.mallorcaWorks.model;
 
 public enum Role { 
     
-    TEACHER("Teacher"),
-    GRANDMASTER("Grandmaster");
+    USER("USER"),
+    TEACHER("TEACHER"),
+    GRANDMASTER("GRAND_MASTER");
 
     private final String value;
 

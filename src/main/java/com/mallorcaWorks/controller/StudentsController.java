@@ -16,7 +16,7 @@ public class StudentsController {
 
     @Autowired
     StudentService studentService;
-
+    /**
     @GetMapping(path = { "/"})
     public String showListaStudents(ModelMap model){
         List<Student> studentList= studentService.getAll();
@@ -25,7 +25,7 @@ public class StudentsController {
     }
     /**
      *save tutto in add newStudent??
-     */
+     *
     @RequestMapping(path = { "/"}, method = RequestMethod.GET)
     public String addNewStudent(ModelMap model){
         Student student = new Student();
@@ -47,5 +47,5 @@ public class StudentsController {
     public String deleteStudent(@PathVariable("id") int id){
         studentService.delete(id);
         return "redirect:/students";
-    }
+    }*/
 }

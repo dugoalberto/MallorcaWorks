@@ -1,48 +1,27 @@
 package com.mallorcaWorks.model;
 
-import lombok.*;
-import javax.persistence.*;
+import java.util.Collection;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
 @Entity
-@Table(name = "Teachers")
-public class Teacher implements User {
-    @Id
-    @Column(name = "id")
-    private int id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "surname", nullable = false)
-    private String surname;
-
-    @OneToOne()
-    @JoinColumn(name = "account", referencedColumnName = "username")
-    private Account account;
-
-    @Override
-    public String getUsername() {
-        return account.getUsername();
-    }
+@DiscriminatorValue("TEACHER")
+public class Teacher extends User {
+    
+    @OneToMany(mappedBy = "teacher")
+    private Collection<Course> courses;
 
     @Override
     public Role getRole() {
         return Role.TEACHER;
     }
 
-    @Override
-    public boolean credsValid(String username, String password) {
-        // TODO check for hashing
-        return username.equals(this.account.getUsername()) && password.equals(this.account.getPassword());
-    }
-
-    @Override
-    public String getPassword() {
-        return account.getPassword();
-    }
 }

@@ -24,16 +24,16 @@ public class TeacherService{
         return (List<Teacher>) repository.findAll();
     }
 
-    public Teacher getById(int id) {
-        return repository.findById(id).orElse(null);
+    public Teacher getByUsername(String username) {
+        return repository.findById(username).orElse(null);
     }
 
-    public void delete(int id) {
-        repository.deleteById(id);
+    public void delete(String username) {
+        repository.deleteById(username);
     }
 
     public void updateTeacher(Teacher teacher) {
-        Teacher updatedTeacher = repository.findById(teacher.getId()).orElse(null);
+        Teacher updatedTeacher = repository.findById(teacher.getUsername()).orElse(null);
         if(updatedTeacher != null ){
             updatedTeacher.setName(teacher.getName());
             updatedTeacher.setSurname(teacher.getSurname());

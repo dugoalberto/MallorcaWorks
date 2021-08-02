@@ -6,4 +6,4 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GrandMasterRepo extends CrudRepository<GrandMaster, Integer> { }
+public interface GrandMasterRepo extends CrudRepository<GrandMaster, String> { }

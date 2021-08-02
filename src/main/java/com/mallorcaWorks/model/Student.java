@@ -4,12 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 
 @Data
 @NoArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
 @Entity
 @Table(name = "Students")
 public class Student{
@@ -35,16 +33,6 @@ public class Student{
     @Column(name = "date_of_birth", columnDefinition = "date default null")
     private Date dateOfBirth;
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", languageLevel=" + languageLevel +
-                ", weeks=" + weeks +
-                ", nationality=" + nationality +
-                ", dateOfBirth=" + dateOfBirth +
-                '}';
-    }
+    @ManyToMany(mappedBy = "students")
+    private Collection<Course> courses;
 }

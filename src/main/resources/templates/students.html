@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"
+    >
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>addStudents</title>
 </head>
 <body>
-
+<button type="button" class="btn btn-primary go-back">
+    <svg class="icon icon-sm icon-white mr-2">
+        <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-arrow-left"></use>
+    </svg> Torna indietro
+</button>
+<tr th:each="student: ${studentList}">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${student.name}+ ' ' + ${student.surname}"></h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">detalls</a>
+        </div>
+    </div>
+</tr>
 </body>
 </html>

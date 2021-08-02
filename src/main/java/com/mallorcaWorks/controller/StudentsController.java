@@ -16,8 +16,8 @@ public class StudentsController {
 
     @Autowired
     StudentService studentService;
-    /**
-    @GetMapping(path = { "/"})
+
+    @GetMapping(path = { "/students"})
     public String showListaStudents(ModelMap model){
         List<Student> studentList= studentService.getAll();
         model.addAttribute("studentList", studentList);
@@ -32,7 +32,7 @@ public class StudentsController {
         model.addAttribute("student", student);
         return "addStudent";
     }
-    @RequestMapping(path = { "/"}, method = RequestMethod.POST)
+    @RequestMapping(path = { "/addStudents"}, method = RequestMethod.POST)
     public String addStudent(@ModelAttribute("student")Student student){
         studentService.save(student);
         return "redirect:/students";

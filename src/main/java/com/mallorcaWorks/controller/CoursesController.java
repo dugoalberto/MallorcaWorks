@@ -12,21 +12,19 @@ import java.util.List;
 
 @Controller
 public class CoursesController {
- //TO-DO
     @Autowired
     CourseService courseService;
 
-    @GetMapping("/courses")
+    @GetMapping(path = { "/courses"})
     public String showListaCourses(ModelMap model){
         List<Course> courseList= courseService.getAll();
         model.addAttribute("courseList", courseList);
         return "courses";
     }
-
     /**
      *save tutto in add newCourse??
-     *
-    @RequestMapping("/courses", method = RequestMethod.GET)
+     */
+    @RequestMapping(path = { "/addCourse"}, method = RequestMethod.GET)
     public String addNewCourse(ModelMap model){
         Course course = new Course();
         model.addAttribute("course", course);

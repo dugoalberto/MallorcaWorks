@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <title>Please Log In</title>
-    </head>
-    <body>
-        <h1>Please Log In</h1>
-        <div th:if="${param.error}">
-            Invalid username and password.
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"
+    >
+    <link href="login.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>login page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="centred2">
+            <form th:onforminput="" t name="userName" value="${user.name}" />
         </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
+        <div class="centred3">
+            <input type="text">
         </div>
-        <form th:action="@{/login}" method="post">
-            <div>
-            <input type="text" name="username" placeholder="Username"/>
-            </div>
-            <div>
-            <input type="password" name="password" placeholder="Password"/>
-            </div>
-            <input type="submit" value="Log in" />
-        </form>
-    </body>
+        <div class="centred4">
+            <button type="button">LOG IN</button>
+        </div>
+    </div>
+</body>
 </html>

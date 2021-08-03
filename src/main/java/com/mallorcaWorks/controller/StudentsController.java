@@ -34,14 +34,14 @@ public class StudentsController {
         return "modifyStudent";
     }
 
-    @RequestMapping(path = { "/addStudent"}, method = RequestMethod.GET)
-    public String addNewStudent(ModelMap model){
+    @RequestMapping(path = { "/addStudents"}, method = RequestMethod.GET)
+    public String createStudent(ModelMap model){
         Student student = new Student();
         model.addAttribute("student", student);
-        return "addStudent";
+        return "addStudents";
     }
     @RequestMapping(path = { "/addStudents"}, method = RequestMethod.POST)
-    public String addStudent(@ModelAttribute("student")Student student){
+    public String saveStudent(@ModelAttribute("student")Student student){
         studentService.save(student);
         return "redirect:/students";
     }

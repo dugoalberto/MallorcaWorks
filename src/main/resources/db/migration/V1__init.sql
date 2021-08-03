@@ -21,10 +21,10 @@ CREATE TABLE courses (
     level varchar(30),
     begin_date DATE,
     end_date DATE,
-    teacher varchar(30) REFERENCES Users(username)
+    teacher varchar(30) REFERENCES users(username)
 );
 
 CREATE TABLE courses_students (
-    course int REFERENCES Courses(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    student int REFERENCES Students(id) ON DELETE CASCADE ON UPDATE CASCADE
+    course int REFERENCES courses(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    student int REFERENCES students(id) ON DELETE CASCADE ON UPDATE CASCADE
 )

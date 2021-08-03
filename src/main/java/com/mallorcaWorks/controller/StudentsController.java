@@ -21,6 +21,14 @@ public class StudentsController {
         model.addAttribute("studentList", studentList);
         return "students";
     }
+    @GetMapping("students/{id}/edit")
+    public String getEditStudentPage(@PathVariable Integer id, ModelMap model) {
+        Student student = studentService.getById(id); //student has all the attributes filled in
+        model.addAttribute("student", student);
+        return "modifyStudent";
+    }
+
+
     /**
      *save tutto in add newStudent??
      *

@@ -23,6 +23,9 @@ public class CoursesController {
         model.addAttribute("courseList", courseList);
         return "courses";
     }
+    /**
+     *save tutto in add newCourse??
+     */
     @RequestMapping(path = { "/addCourse"}, method = RequestMethod.GET)
     public String addNewCourse(ModelMap model){
         Course course = new Course();

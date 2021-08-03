@@ -41,6 +41,7 @@ public class StudentService{
             updatedUser.setName(user.getName());
             updatedUser.setNationality(user.getNationality());
             updatedUser.setSurname(user.getSurname());
+            updatedUser.setImage(user.getImage());
             repository.save(updatedUser);
         }
     }

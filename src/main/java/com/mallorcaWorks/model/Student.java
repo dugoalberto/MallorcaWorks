@@ -27,6 +27,9 @@ public class Student{
     @Column(name = "weeks")
     private int weeks;
 
+    @Column(name = "image")
+    private String image;
+
     @Column(name = "nationality", nullable = false )
     private int nationality;
 

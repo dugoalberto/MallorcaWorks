@@ -1,0 +1,1 @@
+ALTER TABLE students ADD image varchar(255);

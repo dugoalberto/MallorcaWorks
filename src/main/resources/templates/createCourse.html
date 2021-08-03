@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <form action="#" th:action="@{/courses/store}" th:object="${courseForm}" method="post">
+            <div>
+                <label for="level">Level</label>
+                <input type="text" th:field="*{level}" />
+                <p th:if="${#fields.hasErrors('level')}" th:errors="*{level}">Level error</p>
+            </div>
+            <div>
+                <label for="beginDate">Begin date</label>
+                <input type="date" th:field="*{beginDate}" />
+                <p th:if="${#fields.hasErrors('beginDate')}" th:errors="*{beginDate}">Begin date error</p>
+            </div>
+            <div>
+                <label for="endDate">End date</label>
+                <input type="date" th:field="*{endDate}" />
+                <p th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}">End date error</p>
+            </div>
+            <div>
+                <label for="teacher">Teacher</label>
+                <input type="text" th:field="*{teacher}" />
+                <p th:if="${#fields.hasErrors('teacher')}" th:errors="*{teacher}">Teacher error</p>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </body>
+</html>

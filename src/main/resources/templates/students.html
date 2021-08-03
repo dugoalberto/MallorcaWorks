@@ -9,18 +9,15 @@
     <title>addStudents</title>
 </head>
 <body>
-<button type="button" class="btn btn-primary go-back">
-    <svg class="icon icon-sm icon-white mr-2">
-        <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-arrow-left"></use>
-    </svg> Torna indietro
-</button>
+    <a href="/home"><button type="button" class="btn btn-primary go-back">torna indietro </button></a>
 <tr th:each="student: ${studentList}">
-    <div class="card" style="width: 18rem;">
+    <div class="card row justify-content-center align-items-center" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title" th:text="${student.name}+ ' ' + ${student.surname}"></h5>
             <p class="card-text"></p>
-            <a href="#" class="btn btn-primary">detalls</a>
+            <a th:href="@{'/students/' + ${student.id}}"
+               class="btn btn-primary">detalls</a>
         </div>
     </div>
 </tr>

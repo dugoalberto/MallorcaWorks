@@ -24,7 +24,7 @@
         </div> -->
 
     <div style="text-align: left">
-        <a href="home.html"><img src="img/home.png" border="0"></a>
+        <a href="/home"><img src="img/home.png" border="0"></a>
     </div>
     <div style="text-align: center">
         <h2 class="display-2"> CURSOS </h2>
@@ -33,14 +33,15 @@
         <div style="background-color: red"
              th:each="course: ${courseList}">
             <div style="alignment: left">
-                <button type="button" class="btn btn-primary btn-block" style="background-color: red; text-align: left">
+               <a href="/students"> <button type="button" class="btn btn-primary btn-block" style="background-color: red; text-align: left">
                     <p th:text="${course.level}"></p>
-                </button>
+                </button></a>
             </div>
         </div>
     </div>
-
-</div>
+    <div>
+        <a href="/addCourse"><button type="button" class="btn btn-primary btn-block" style="background-color: red"> afegir curs</button></a>
+    </div>
 </div>
 </body>
 </html>

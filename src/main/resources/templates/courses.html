@@ -30,32 +30,16 @@
         <h2 class="display-2"> CURSOS </h2>
     </div>
     <div>
-        <div style="background-color: red">
+        <div style="background-color: red"
+             th:each="course: ${courseList}">
             <div style="alignment: left">
                 <button type="button" class="btn btn-primary btn-block" style="background-color: red; text-align: left">
-                    <p th:text="level"></p>
+                    <p th:text="${course.level}"></p>
                 </button>
             </div>
         </div>
     </div>
-    <div>
-        <div style="background-color: red">
-            <div style="alignment: left">
-                <button type="button" class="btn btn-primary btn-block" style="background-color: red; text-align: left">
-                    <p th:text=""></p>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div style="background-color: red">
-            <div style="alignment: left">
-                <button type="button" class="btn btn-primary btn-block" style="background-color: red; text-align: left">
-                    <p th:text="level"></p>
-                </button>
-            </div>
-        </div>
-    </div>
+
 </div>
 </div>
 </body>

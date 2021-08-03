@@ -1,5 +1,6 @@
 package com.mallorcaWorks.controller;
 
+import com.mallorcaWorks.dto.CourseForm;
 import com.mallorcaWorks.model.Course;
 import com.mallorcaWorks.model.Teacher;
 import com.mallorcaWorks.service.CourseService;
@@ -7,41 +8,56 @@ import com.mallorcaWorks.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 @Controller
 public class CoursesController {
-    @Autowired
-    CourseService courseService;
-    TeacherService teacherService;
+    
+    private final CourseService courseService;
+    private final TeacherService teacherService;
 
-    @GetMapping(path = { "/courses"})
-    public String showListaCourses(ModelMap model){
-        List<Course> courseList= courseService.getAll();
-        model.addAttribute("courseList", courseList);
+    @Autowired
+    public CoursesController(CourseService cService, TeacherService tService) {
+        courseService = cService;
+        teacherService = tService;
+    }
+
+    @GetMapping(path = "/courses")
+    public String showCourses(ModelMap model) {
+        model.addAttribute("courseList", courseService.getAll());
         return "courses";
     }
-    /**
-     *save tutto in add newCourse??
-     */
-    @RequestMapping(path = { "/addCourse"}, method = RequestMethod.GET)
-    public String addNewCourse(ModelMap model){
-        Course course = new Course();
-        model.addAttribute("course", course);
-        List<Teacher> teacherList = teacherService.getAll();
-        model.addAttribute("teacherList", teacherList);
-        return "addCourse";
+    
+    @GetMapping(path = "/courses/create")
+    public String createCourse(CourseForm courseForm, ModelMap model){
+        model.addAttribute("teachers", teacherService.getAll());
+        return "createCourse";
     }
 
-    @RequestMapping(path = { "/modifyCourse/{id}"})
-    public String editLav(@PathVariable("id") int id, ModelMap model){
-        model.addAttribute("course", courseService.getById(id));
+    @PostMapping(path = "/courses/store")
+    public String storeCourse(@Valid CourseForm courseForm, BindingResult result) {
+        if (result.hasErrors())
+            return "createCourse";
+        Course newCourse = new Course();
+        newCourse.setBeginDate(courseForm.getBeginDate());
+        newCourse.setEndDate(courseForm.getEndDate());
+        newCourse.setLevel(courseForm.getLevel());
+        newCourse.setTeacher(teacherService.getByUsername(courseForm.getTeacher()));
         return "redirect:/courses";
     }
 
-    @RequestMapping(value = "/deleteCourse/{id}")
+    /* @RequestMapping(path = { "/modifyCourse/{id}"})
+    public String editLav(@PathVariable("id") int id, ModelMap model){
+        model.addAttribute("course", courseService.getById(id));
+        return "redirect:/courses";
+    } */
+
+    @RequestMapping(value = "/course/{id}/delete")
     public String deleteStudent(@PathVariable("id") int id){
         courseService.delete(id);
         return "redirect:/courses";

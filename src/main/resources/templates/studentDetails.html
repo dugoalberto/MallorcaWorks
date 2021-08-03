@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"
+    >
+    <meta charset="UTF-8">
+    <title>addStudents</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/students"><button type="button" class="btn btn-primary go-back">torna indietro </button></a>
+        <div align="center">
+            <img src="..." style="alignment: center">
+            <div class="d-flex row justify-content-center align-items-center">
+                <h5>nom i cognom:&nbsp</h5><h5 th:text="${student.name}+ ' ' + ${student.surname}"></h5>
+            </div>
+            <div class="d-flex row justify-content-center align-items-center">
+                <h5>nivell d'idioma:&nbsp</h5><h5 th:text="${student.languageLevel}"></h5>
+            </div>
+            <div class="d-flex row justify-content-center align-items-center">
+                <h5>nacionalitad:&nbsp</h5><h5 th:text="${student.nationality}"></h5>
+            </div>
+            <div class="d-flex row justify-content-center align-items-center">
+                <h5>setmanes&nbsp:&nbsp</h5><h5 th:text="${student.weeks}"></h5>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

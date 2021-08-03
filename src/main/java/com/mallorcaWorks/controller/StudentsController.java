@@ -21,6 +21,12 @@ public class StudentsController {
         model.addAttribute("studentList", studentList);
         return "students";
     }
+    @GetMapping("students/{id}")
+    public String showStudent(@PathVariable Integer id, ModelMap model) {
+        Student student = studentService.getById(id); //student has all the attributes filled in
+        model.addAttribute("student", student);
+        return "studentDetails";
+    }
     @GetMapping("students/{id}/edit")
     public String getEditStudentPage(@PathVariable Integer id, ModelMap model) {
         Student student = studentService.getById(id); //student has all the attributes filled in
@@ -28,11 +34,7 @@ public class StudentsController {
         return "modifyStudent";
     }
 
-
-    /**
-     *save tutto in add newStudent??
-     *
-    @RequestMapping(path = { "/"}, method = RequestMethod.GET)
+    @RequestMapping(path = { "/addStudent"}, method = RequestMethod.GET)
     public String addNewStudent(ModelMap model){
         Student student = new Student();
         model.addAttribute("student", student);
@@ -53,5 +55,5 @@ public class StudentsController {
     public String deleteStudent(@PathVariable("id") int id){
         studentService.delete(id);
         return "redirect:/students";
-    }*/
+    }
 }

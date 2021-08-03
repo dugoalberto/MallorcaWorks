@@ -22,7 +22,7 @@ public class Student{
     private String surname;
 
     @Column(name = "language_level")
-    private int languageLevel;
+    private String languageLevel;
 
     @Column(name = "weeks")
     private int weeks;
@@ -31,7 +31,7 @@ public class Student{
     private String image;
 
     @Column(name = "nationality", nullable = false )
-    private int nationality;
+    private String nationality;
 
     @Column(name = "date_of_birth", columnDefinition = "date default null")
     private Date dateOfBirth;

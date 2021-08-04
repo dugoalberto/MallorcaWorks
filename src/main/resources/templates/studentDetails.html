@@ -26,6 +26,10 @@
                 <h5>setmanes&nbsp:&nbsp</h5><h5 th:text="${student.weeks}"></h5>
             </div>
         </div>
+        <div align="right">
+            <a th:href="@{'/modifyStudent/' + ${student.id}}"
+               class="btn btn-primary">modifica</a>
+        </div>
     </div>
 </body>
 </html>

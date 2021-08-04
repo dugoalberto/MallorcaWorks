@@ -50,4 +50,7 @@ public class Course {
     )
     private Collection<Student> students;
 
+    public int numeroStudenti(Collection<Student> students){
+        return (int) students.stream().count();
+    }
 }

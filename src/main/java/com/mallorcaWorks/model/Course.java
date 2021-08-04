@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -42,15 +43,7 @@ public class Course {
     @JoinColumn(name = "teacher", referencedColumnName = "username")
     private Teacher teacher;
 
-    @ManyToMany
-    @JoinTable(
-        name = "CoursesStudents",
-        joinColumns =  @JoinColumn(name = "course", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "student", referencedColumnName = "id")
-    )
+    @OneToMany(mappedBy = "course")
     private Collection<Student> students;
-
-    public int numeroStudenti(Collection<Student> students){
-        return (int) students.stream().count();
-    }
+    
 }

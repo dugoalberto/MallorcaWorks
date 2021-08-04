@@ -36,6 +36,7 @@ public class Student{
     @Column(name = "date_of_birth", columnDefinition = "date default null")
     private Date dateOfBirth;
 
-    @ManyToMany(mappedBy = "students")
-    private Collection<Course> courses;
+    @ManyToOne()
+    @JoinColumn(name = "course", referencedColumnName = "id")
+    private Course course;
 }

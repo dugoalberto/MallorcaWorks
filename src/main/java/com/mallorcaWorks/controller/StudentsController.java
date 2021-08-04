@@ -43,6 +43,7 @@ public class StudentsController {
         model.addAttribute("student", studentService.getAll());
         return "createStudent";
     }
+    /* 
     @PostMapping(path = { "/student/store"})
     public String storeStudent(@Valid StudentForm studentForm, BindingResult result){
         if (result.hasErrors())
@@ -81,5 +82,5 @@ public class StudentsController {
     public String deleteStudent(@PathVariable("id") int id){
         studentService.delete(id);
         return "redirect:/students";
-    }
+    } */
 }

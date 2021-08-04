@@ -32,6 +32,6 @@ public class StudentForm {
     private Date dateOfBirth;
 
     @NotBlank
-    private String course;
+    private int course;
 
 }

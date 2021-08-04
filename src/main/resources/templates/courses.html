@@ -10,22 +10,8 @@
     <title></title>
 </head>
 <body>
+<a href="/home"><button type="button" class="btn btn-primary go-back">torna indietro </button></a>
 <div class="container">
-    <!--   <div class="dropdown show float-left">
-        <a class="btn btn-secondary dropdown-toggle"
-           href="#" role="button" id="dropdownMenuLink"
-           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-        >
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div> -->
-
-    <div style="text-align: left">
-        <a href="/home"><img src="img/home.png" border="0"></a>
-    </div>
     <div style="text-align: center">
         <h2 class="display-2"> CURSOS </h2>
     </div>
@@ -33,8 +19,8 @@
         <div style="background-color: red"
              th:each="course: ${courseList}">
             <div style="alignment: left">
-               <a href="/students"> <button type="button" class="btn btn-primary btn-block" style="background-color: red; text-align: left">
-                    <p th:text="${course.level}"></p>
+               <a href="/student"> <button type="button" class="btn btn-primary btn-block" style="background-color: red; text-align: left">
+                    <p th:text="${course.level}" align="left"></p>
                 </button></a>
             </div>
         </div>

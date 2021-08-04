@@ -60,10 +60,11 @@ public class CoursesController {
         courseForm.setLevel(course.getLevel());
         courseForm.setTeacher(course.getTeacher().getUsername());
         model.addAttribute("teachers", teacherService.getAll());
+        model.addAttribute("id", id);
         return "editCourse";
     }
 
-    @PostMapping(path = "/courses/{id}/store")
+    @PostMapping(path = "/courses/{id}/update")
     public String storeCourse(@Valid CourseForm courseForm, @PathVariable("id") int id, BindingResult result) {
         if (result.hasErrors())
             return "editCourse";
@@ -76,10 +77,9 @@ public class CoursesController {
         return "redirect:/courses";
     }
     
-    @GetMapping(value = "/course/{id}/delete")
+    @GetMapping(value = "/courses/{id}/delete")
     public String deleteStudent(@PathVariable("id") int id){
         courseService.delete(id);
         return "redirect:/courses";
-
     }
 }

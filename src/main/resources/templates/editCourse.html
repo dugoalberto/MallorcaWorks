@@ -8,7 +8,7 @@
         />
     </head>
     <body>
-        <form action="#" th:action="@{/courses/store}" th:object="${courseForm}" method="post">
+        <form action="#" th:action="@{/courses/{courseId}/update(courseId = ${id})}" th:object="${courseForm}" method="post">
             <div class="form-group">
                 <label for="level">Level</label>
                 <select th:field="*{level}">

@@ -15,16 +15,13 @@
     <div style="text-align: center">
         <h2 class="display-2"> CURSOS </h2>
     </div>
-    <div>
-        <div style="background-color: red"
-             th:each="course: ${courseList}">
-            <div style="alignment: left">
-               <a href="/student"> <button type="button" class="btn btn-primary btn-block" style="background-color: red; text-align: left">
-                    <p th:text="${course.level}" align="left"></p>
-                </button></a>
-            </div>
-        </div>
-    </div>
+    <ul>
+        <li th:each="course: ${courseList}">
+            <a th:href="@{/courses/{courseId}/students(courseId = ${course.id})}" th:text="${course.level}"></a>
+            <a th:href="@{/courses/{courseId}/edit(courseId = ${course.id})}">Edit</a>
+            <a th:href="@{/courses/{courseId}/delete(courseId = ${course.id})}">Delete</a>
+        </li>
+    </ul>
     <div>
         <a th:href="@{/courses/create}"><button type="button" class="btn btn-primary btn-block" style="background-color: red"> afegir curs</button></a>
     </div>

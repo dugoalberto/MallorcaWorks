@@ -48,16 +48,35 @@ public class CoursesController {
         newCourse.setEndDate(courseForm.getEndDate());
         newCourse.setLevel(courseForm.getLevel());
         newCourse.setTeacher(teacherService.getByUsername(courseForm.getTeacher()));
+        courseService.save(newCourse);
         return "redirect:/courses";
     }
 
-    /* @RequestMapping(path = { "/modifyCourse/{id}"})
-    public String editLav(@PathVariable("id") int id, ModelMap model){
-        model.addAttribute("course", courseService.getById(id));
-        return "redirect:/courses";
-    } */
+    @GetMapping(path = "/courses/{id}/edit")
+    public String editCourse(CourseForm courseForm, @PathVariable("id") int id, ModelMap model) {
+        Course course = courseService.getById(id);
+        courseForm.setBeginDate(course.getBeginDate());
+        courseForm.setEndDate(course.getEndDate());
+        courseForm.setLevel(course.getLevel());
+        courseForm.setTeacher(course.getTeacher().getUsername());
+        model.addAttribute("teachers", teacherService.getAll());
+        return "editCourse";
+    }
 
-    @RequestMapping(value = "/course/{id}/delete")
+    @PostMapping(path = "/courses/{id}/store")
+    public String storeCourse(@Valid CourseForm courseForm, @PathVariable("id") int id, BindingResult result) {
+        if (result.hasErrors())
+            return "editCourse";
+        Course updatedCourse = courseService.getById(id);
+        updatedCourse.setBeginDate(courseForm.getBeginDate());
+        updatedCourse.setEndDate(courseForm.getEndDate());
+        updatedCourse.setLevel(courseForm.getLevel());
+        updatedCourse.setTeacher(teacherService.getByUsername(courseForm.getTeacher()));
+        courseService.save(updatedCourse);
+        return "redirect:/courses";
+    }
+    
+    @GetMapping(value = "/course/{id}/delete")
     public String deleteStudent(@PathVariable("id") int id){
         courseService.delete(id);
         return "redirect:/courses";

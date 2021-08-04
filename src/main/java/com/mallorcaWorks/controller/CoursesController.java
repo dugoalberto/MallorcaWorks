@@ -4,6 +4,7 @@ import com.mallorcaWorks.dto.CourseForm;
 import com.mallorcaWorks.model.Course;
 import com.mallorcaWorks.model.Teacher;
 import com.mallorcaWorks.service.CourseService;
+import com.mallorcaWorks.service.StudentService;
 import com.mallorcaWorks.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,7 +66,7 @@ public class CoursesController {
     }
 
     @PostMapping(path = "/courses/{id}/update")
-    public String storeCourse(@Valid CourseForm courseForm, @PathVariable("id") int id, BindingResult result) {
+    public String updateCourse(@Valid CourseForm courseForm, @PathVariable("id") int id, BindingResult result) {
         if (result.hasErrors())
             return "editCourse";
         Course updatedCourse = courseService.getById(id);
@@ -78,8 +79,14 @@ public class CoursesController {
     }
     
     @GetMapping(value = "/courses/{id}/delete")
-    public String deleteStudent(@PathVariable("id") int id){
+    public String deleteCourse(@PathVariable("id") int id){
         courseService.delete(id);
         return "redirect:/courses";
+    }
+
+    @GetMapping(value = "/courses/{id}/students")
+    public String showCourseStudents(@PathVariable("id") int id, ModelMap model) {
+        model.addAttribute("students", courseService.getById(id).getStudents());
+        return "students";
     }
 }

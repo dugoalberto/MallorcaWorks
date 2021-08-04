@@ -10,21 +10,22 @@
     <title></title>
 </head>
 <body>
-<a href="/home"><button type="button" class="btn btn-primary go-back">torna indietro </button></a>
-<div class="container">
-    <div style="text-align: center">
-        <h2 class="display-2"> CURSOS </h2>
+    <a href="/home"><button type="button" class="btn btn-primary go-back">torna indietro </button></a>
+    <div class="container">
+        <div style="text-align: center">
+            <h2 class="display-6"> CURSOS </h2>
+        </div>
+        <ul class="list-group my-2">
+            <li class="list-group-item d-flex" th:each="course: ${courseList}">
+                <a class="flex-grow-1" th:href="@{/courses/{courseId}/students(courseId = ${course.id})}" th:text="${course.level}"></a>
+                <a class="mx-2" th:href="@{/courses/{courseId}/edit(courseId = ${course.id})}">Edit</a>
+                <a class="mx-2" th:href="@{/courses/{courseId}/delete(courseId = ${course.id})}">Delete</a>
+            </li>
+        </ul>
+        <div>
+            <a th:href="@{/courses/create}"><button type="button" class="btn btn-primary btn-block"> afegir curs</button></a>
+        </div>
     </div>
-    <ul>
-        <li th:each="course: ${courseList}">
-            <a th:href="@{/courses/{courseId}/students(courseId = ${course.id})}" th:text="${course.level}"></a>
-            <a th:href="@{/courses/{courseId}/edit(courseId = ${course.id})}">Edit</a>
-            <a th:href="@{/courses/{courseId}/delete(courseId = ${course.id})}">Delete</a>
-        </li>
-    </ul>
-    <div>
-        <a th:href="@{/courses/create}"><button type="button" class="btn btn-primary btn-block" style="background-color: red"> afegir curs</button></a>
-    </div>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
